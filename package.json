@@ -1,13 +1,13 @@
 {
   "name": "@tuentyfaiv/gallery-react",
   "version": "0.1.0",
+  "description": "A photo gallery in react",
   "private": true,
   "main": "./lib/components/index.js",
   "module": "./lib/components/index.js",
   "types": "./lib/components/index.d.js",
-  "files": [
-    "/lib"
-  ],
+  "author": "Tonalli",
+  "license": "MIT",
   "keywords": [
     "javascript",
     "typescript",
@@ -16,11 +16,6 @@
     "gallery",
     "photos"
   ],
-  "dependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "5.0.0"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -29,17 +24,10 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "5.0.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.1",
@@ -62,5 +50,31 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "sass": "^1.46.0",
     "typescript": "^4.5.4"
+  },
+  "files": [
+    "/lib"
+  ],
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TuentyFaiv/GalleryReact.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TuentyFaiv/GalleryReact/issues"
+  },
+  "homepage": "https://github.com/TuentyFaiv/GalleryReact#readme",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
