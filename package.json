@@ -2,7 +2,6 @@
   "name": "@tuentyfaiv/gallery-react",
   "version": "0.1.0",
   "description": "A photo gallery in react",
-  "private": true,
   "main": "./lib/components/index.js",
   "module": "./lib/components/index.js",
   "types": "./lib/components/index.d.js",
@@ -18,7 +17,8 @@
   ],
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "npm run clean && npm run build:ts",
+    "build:react": "react-scripts build",
     "build:ts": "tsc",
     "clean": "rm -rf ./lib",
     "test": "react-scripts test",
