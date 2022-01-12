@@ -1,10 +1,10 @@
 {
   "name": "@tuentyfaiv/gallery-react",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "A photo gallery in react",
-  "main": "./lib/components/index.js",
-  "module": "./lib/components/index.js",
-  "types": "./lib/components/index.d.js",
+  "main": "./lib/main.js",
+  "module": "./lib/main.js",
+  "types": "./lib/main.d.js",
   "author": "Tonalli",
   "license": "MIT",
   "keywords": [
@@ -17,8 +17,11 @@
   ],
   "scripts": {
     "start": "react-scripts start",
-    "build": "npm run clean && npm run build:ts",
     "build:react": "react-scripts build",
+    "build": "npm run clean && npm run build:css && npm run build:ts",
+    "build:css": "npm run build:css-components && npm run build:css-containers",
+    "build:css-components": "node-sass src/components -o lib/components --output-style compressed",
+    "build:css-containers": "node-sass src/containers -o lib/containers --output-style compressed",
     "build:ts": "tsc",
     "clean": "rm -rf ./lib",
     "test": "react-scripts test",
@@ -35,6 +38,7 @@
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.4.0",
     "@types/node": "^17.0.8",
+    "@types/node-sass": "^4.11.2",
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
     "@typescript-eslint/eslint-plugin": "^5.9.0",
@@ -48,7 +52,7 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "sass": "^1.46.0",
+    "node-sass": "^7.0.1",
     "typescript": "^4.5.4"
   },
   "files": [

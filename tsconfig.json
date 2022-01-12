@@ -12,7 +12,7 @@
     "declaration": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "isolatedModules": true,
     "module": "esnext",
     "moduleResolution": "node",
@@ -26,6 +26,7 @@
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noImplicitAny": true,
+    "importHelpers": true,
     "noFallthroughCasesInSwitch": true
   },
   "include": [
@@ -33,6 +34,9 @@
   ],
   "exclude": [
     "node_modules",
-    "lib"
+    "lib",
+    "src/__test__",
+    "src/pages",
+    "src/index.tsx"
   ]
 }
