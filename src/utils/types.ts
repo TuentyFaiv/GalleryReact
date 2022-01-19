@@ -1,4 +1,4 @@
-import { MouseEventHandler } from "react";
+import { MouseEventHandler, ReactNode } from "react";
 import { DoubleLinkedList, Node } from "./structures";
 
 export enum Keys {
@@ -36,6 +36,7 @@ export type MosaicProps = {
   className?: string;
   itemStyles?: (item: number) => React.CSSProperties;
   pictureStyles?: React.CSSProperties;
+  onHover?: (props: any) => ReactNode;
 };
 
 export type ModalProps = ChildrenProp & {
@@ -45,14 +46,17 @@ export type ModalProps = ChildrenProp & {
 };
 
 export type CarouselConfig = {
-  navigation?: "center" | "start" | "end";
+  navigation?: "center" | "start" | "end" | "hidden";
   modal?: boolean
 };
 
 export type CarouselProps = GalleryCtx & {
   styles?: React.CSSProperties;
   className?: string;
-  config?: CarouselConfig
+  config?: CarouselConfig;
+  onFooter?: (props: any) => ReactNode;
+  prevIcon?: string;
+  nextIcon?: string;
 };
 
 export type CarouselFloatProps = CarouselProps & {

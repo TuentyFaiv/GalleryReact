@@ -12,6 +12,13 @@ export {
   Card
 };
 
-export function sayHello(name: string): string {
-  return `Hey ${name}, thanks for downloading this library ❤️`;
-}
+export const SayHello = ({ name }: { name: string }): JSX.Element => (
+  <p>
+    {`Hey ${name}, thanks for downloading @tuentyfaiv/gallery-react ❤️`}
+    <br />
+    See more libraries
+    <a href="https://tuentyfaiv.com/packages" target="_blank" rel="noopener noreferrer">
+      here
+    </a>
+  </p>
+);
