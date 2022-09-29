@@ -1,9 +1,7 @@
 import type { CardProps } from "../common/typing/proptypes";
 
-import "./styles/Card.css";
-
-const Card = ({ title, photo, text }: CardProps) => (
-  <article>
+const Card = ({ title, photo, text, className }: CardProps) => (
+  <article className={className ?? "gallery-card"}>
     <h1>{title}</h1>
     <picture>
       {photo.srcSets?.map((src) => (

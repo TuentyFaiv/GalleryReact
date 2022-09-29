@@ -5,8 +5,6 @@ import { Keys } from "../common/typing/enums";
 import type { KeyboardEventHandler } from "react";
 import type { ModalProps } from "../common/typing/proptypes";
 
-import "./styles/Modal.css";
-
 const Modal = ({ children, styles, className, onClose }: ModalProps) => {
   const modalRoot = document.querySelector("#gallery-portal");
   if (!modalRoot) throw new Error("There isn't a tag with 'gallery-portal' id");
@@ -19,7 +17,7 @@ const Modal = ({ children, styles, className, onClose }: ModalProps) => {
 
   return createPortal(
     <div
-      className={`gallery-modal${className ? ` ${className}` : ""}`}
+      className={className ?? "gallery-modal"}
       style={styles}
     >
       <span

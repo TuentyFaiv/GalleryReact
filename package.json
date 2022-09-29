@@ -19,9 +19,7 @@
     "start": "react-scripts start",
     "build:react": "react-scripts build",
     "build": "npm run clean && npm run build:css && npm run build:ts",
-    "build:css": "npm run build:css-components && npm run build:css-containers",
-    "build:css-components": "node-sass src/components -o lib/components --output-style compressed",
-    "build:css-containers": "node-sass src/containers -o lib/containers --output-style compressed",
+    "build:css": "sass src/styles/main.scss:lib/main.css --style=compressed --no-source-map",
     "build:ts": "tsc --project tsconfig.prod.json",
     "build:dev:ts": "tsc",
     "clean": "rm -rf ./lib",
@@ -30,8 +28,7 @@
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "^5.0.1"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.1",
@@ -53,7 +50,8 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "node-sass": "^7.0.1",
+    "react-scripts": "^5.0.1",
+    "sass": "^1.55.0",
     "typescript": "^4.8.4"
   },
   "files": [

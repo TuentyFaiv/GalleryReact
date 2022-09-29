@@ -3,8 +3,6 @@ import { withContext } from "../hoc";
 
 import type { CarouselProps } from "../common/typing/proptypes";
 
-import "./styles/Carousel.css";
-
 const Carousel = ({ photos, activePhoto, selectPhoto, ...props }: CarouselProps) => {
   const allPhotos = photos?.getAll();
 
@@ -16,7 +14,7 @@ const Carousel = ({ photos, activePhoto, selectPhoto, ...props }: CarouselProps)
 
   return (
     <section
-      className={`gallery-carousel${props.className ? ` ${props.className}` : ""}`}
+      className={props.className ?? "gallery-carousel"}
       style={props.styles}
       data-modal={props.config?.modal}
       data-navigation={props.config?.navigation}

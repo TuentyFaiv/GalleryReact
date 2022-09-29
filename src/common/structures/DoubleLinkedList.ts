@@ -11,6 +11,10 @@ export default class DoubleLinkedList<T extends ID> {
   constructor(values: T[] = []) {
     const [firstValue, ...otherValues]: T[] = values;
 
+    if (typeof firstValue === "undefined") {
+      throw new Error("Items must be a least one");
+    }
+
     this.head = new Node(firstValue);
     this.tail = this.head;
     this.length = 1;

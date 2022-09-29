@@ -3,8 +3,6 @@ import { useGalleryContext } from "../context";
 
 import type { MosaicProps } from "../common/typing/proptypes";
 
-import "./styles/Mosaic.css";
-
 const Mosaic = ({ styles, className, itemStyles, ...props }: MosaicProps) => {
   const { photos, selectPhoto } = useGalleryContext();
   const [hover, setHover] = useState<number | null>(null);
