@@ -1,15 +1,23 @@
+import type { CardProps } from "../common/typing/proptypes";
+
 import "./styles/Card.css";
 
-type PropsCard = {
-  title: string;
-  img: string;
-  text: string;
-};
-
-const Card = ({ title, img, text }: PropsCard): JSX.Element => (
+const Card = ({ title, photo, text }: CardProps) => (
   <article>
     <h1>{title}</h1>
-    <img src={img} alt="" />
+    <picture>
+      {photo.srcSets?.map((src) => (
+        <source
+          key={src.mediaQuery}
+          media={src.mediaQuery}
+          srcSet={src.source}
+        />
+      ))}
+      <img
+        src={photo.src}
+        alt={photo.alt}
+      />
+    </picture>
     <p>{text}</p>
   </article>
 );

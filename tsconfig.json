@@ -27,16 +27,55 @@
     "noImplicitThis": true,
     "noImplicitAny": true,
     "importHelpers": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "paths": {
+      "@images/*": [
+        "src/assets/images/*"
+      ],
+      "@icons/*": [
+        "src/assets/images/icons/*"
+      ],
+      "@utils": [
+        "src/common/utils.ts"
+      ],
+      "@structures": [
+        "src/common/structures/index.ts"
+      ],
+      "@typing/*": [
+        "src/common/typing/*"
+      ],
+      "@config": [
+        "src/common/config.ts"
+      ],
+      "@components": [
+        "src/components/index.ts"
+      ],
+      "@containers": [
+        "src/containers/index.ts"
+      ],
+      "@context": [
+        "src/context/index.ts"
+      ],
+      "@hooks": [
+        "src/hooks/index.ts"
+      ],
+      "@hoc": [
+        "src/hoc/index.ts"
+      ],
+      "@styles/comp/*": [
+        "src/components/styles/*"
+      ],
+      "@styles/cont/*": [
+        "src/containers/styles/*"
+      ]
+    }
   },
   "include": [
     "src"
   ],
   "exclude": [
     "node_modules",
-    "lib",
-    "src/__test__",
-    "src/pages",
-    "src/index.tsx"
+    "lib"
   ]
 }

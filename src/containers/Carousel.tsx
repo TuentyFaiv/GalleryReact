@@ -1,11 +1,12 @@
 import { useEffect } from "react";
-import { withContext } from "../hoc/withContext";
-import { CarouselProps, SrcSet } from "../utils/types";
+import { withContext } from "../hoc";
+
+import type { CarouselProps } from "../common/typing/proptypes";
 
 import "./styles/Carousel.css";
 
-const Carousel = ({ photos, activePhoto, selectPhoto, ...props }: CarouselProps): JSX.Element => {
-  const allPhotos = photos?.getAllPhotos();
+const Carousel = ({ photos, activePhoto, selectPhoto, ...props }: CarouselProps) => {
+  const allPhotos = photos?.getAll();
 
   useEffect(() => {
     if (!props.config?.modal && photos) {
@@ -28,7 +29,7 @@ const Carousel = ({ photos, activePhoto, selectPhoto, ...props }: CarouselProps)
           data-icon={!!props.prevIcon}
           onClick={() => {
             if (activePhoto && photos) {
-              selectPhoto(activePhoto.prev || photos.tail);
+              selectPhoto(activePhoto.prev ?? photos.tail);
             }
           }}
         >
@@ -38,7 +39,7 @@ const Carousel = ({ photos, activePhoto, selectPhoto, ...props }: CarouselProps)
         </button>
         <div className="gallery-carousel__content">
           <picture className="gallery-carousel__picture">
-            {activePhoto?.value.srcSets?.map((src: SrcSet) => (
+            {activePhoto?.value.srcSets?.map((src) => (
               <source
                 key={src.mediaQuery}
                 media={src.mediaQuery}
@@ -60,7 +61,7 @@ const Carousel = ({ photos, activePhoto, selectPhoto, ...props }: CarouselProps)
           data-icon={!!props.nextIcon}
           onClick={() => {
             if (activePhoto && photos) {
-              selectPhoto(activePhoto.next || photos.head);
+              selectPhoto(activePhoto.next ?? photos.head);
             }
           }}
         >

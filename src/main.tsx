@@ -1,18 +1,10 @@
-import GalleryProvider from "./context/GalleryContext";
-import Mosaic from "./containers/Mosaic";
-import Carousel from "./containers/Carousel";
-import CarouselFloat from "./containers/CarouselFloat";
-import Card from "./components/Card";
+import type { SayHelloProps } from "./common/typing/proptypes";
 
-export {
-  GalleryProvider,
-  Carousel,
-  CarouselFloat,
-  Mosaic,
-  Card
-};
+export { GalleryProvider } from "./context";
+export { Card } from "./components";
+export { Mosaic, Carousel, CarouselFloat } from "./containers";
 
-export const SayHello = ({ name }: { name: string }): JSX.Element => (
+export const SayHello = ({ name }: SayHelloProps) => (
   <p>
     {`Hey ${name}, thanks for downloading @tuentyfaiv/gallery-react ❤️`}
     <br />

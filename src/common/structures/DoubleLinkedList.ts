@@ -1,12 +1,15 @@
-import { Node } from "./Node";
+// eslint-disable-next-line import/no-cycle, import/no-useless-path-segments
+import { Node } from "../structures";
 
-export class DoubleLinkedList {
-  head: Node;
-  tail: Node;
+import type { ID } from "../typing/types";
+
+export default class DoubleLinkedList<T extends ID> {
+  head: Node<T>;
+  tail: Node<T>;
   length: number;
 
-  constructor(values: any[] = []) {
-    const [firstValue, ...otherValues]: any = values;
+  constructor(values: T[] = []) {
+    const [firstValue, ...otherValues]: T[] = values;
 
     this.head = new Node(firstValue);
     this.tail = this.head;
@@ -15,10 +18,10 @@ export class DoubleLinkedList {
     if (otherValues.length > 0) this.appendItems(otherValues);
   }
 
-  getAllPhotos(): Node[] {
+  getAll(): Node<T>[] {
     let count = 0;
     let currentNode = this.head;
-    const values: Node[] = [];
+    const values: Node<T>[] = [];
 
     while (count < this.length) {
       values.push(currentNode);
@@ -29,13 +32,13 @@ export class DoubleLinkedList {
     return values;
   }
 
-  appendItems(items: any[]) {
+  appendItems(items: T[]) {
     items.forEach((item) => {
       this.append(item);
     });
   }
 
-  append(value: any) {
+  append(value: T) {
     const newNode = new Node(value);
 
     newNode.prev = this.tail;
@@ -46,7 +49,7 @@ export class DoubleLinkedList {
     return this;
   }
 
-  prepend(value: any) {
+  prepend(value: T) {
     const newNode = new Node(value);
 
     this.head.prev = newNode;
@@ -57,7 +60,7 @@ export class DoubleLinkedList {
     return this;
   }
 
-  insert(value: any, index: number) {
+  insert(value: T, index: number) {
     if (index >= this.length) return this.append(value);
     if (index <= 0) return this.prepend(value);
 
@@ -113,7 +116,7 @@ export class DoubleLinkedList {
   findItem(id: number) {
     let currentNode = this.head;
 
-    while (currentNode.value?.id !== id) {
+    while (currentNode.value.id !== id) {
       if (currentNode.next) {
         currentNode = currentNode.next;
       } else {

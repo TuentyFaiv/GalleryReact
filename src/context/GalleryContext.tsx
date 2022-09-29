@@ -5,8 +5,11 @@ import {
   useMemo,
   useState
 } from "react";
-import { DoubleLinkedList, Node } from "../utils/structures";
-import { GalleryCtx, GalleyCtxProps } from "../utils/types";
+import { DoubleLinkedList } from "../common/structures";
+
+import type { Node } from "../common/structures";
+import type { GalleryCtx, GalleyCtxProps } from "../common/typing/contexts";
+import type { Photo } from "../common/typing/types";
 
 const GalleryContext = createContext<GalleryCtx>({
   photos: null,
@@ -14,12 +17,12 @@ const GalleryContext = createContext<GalleryCtx>({
   selectPhoto: () => {}
 });
 
-const GalleryProvider = ({ children, photos }: GalleyCtxProps): JSX.Element => {
-  const [activePhoto, setActivePhoto] = useState<Node | null>(null);
+const GalleryProvider = ({ children, photos }: GalleyCtxProps) => {
+  const [activePhoto, setActivePhoto] = useState<Node<Photo> | null>(null);
   const photosCtx = useMemo(() => new DoubleLinkedList(photos), [photos]);
 
-  const handleSelectPhoto = useCallback((node: Node | null, id?: number) => {
-    let nodeSelected: Node | null;
+  const handleSelectPhoto = useCallback((node: Node<Photo> | null, id?: number) => {
+    let nodeSelected: Node<Photo> | null;
     if (id) {
       nodeSelected = photosCtx.findItem(id);
     } else {

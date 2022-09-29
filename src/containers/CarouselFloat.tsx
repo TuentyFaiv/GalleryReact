@@ -1,9 +1,12 @@
-import { CarouselFloatProps } from "../utils/types";
-import { withContext } from "../hoc/withContext";
-import Modal from "../components/Modal";
-import Carousel from "./Carousel";
+import { withContext } from "../hoc";
 
-const CarouselFloat = (props: CarouselFloatProps): JSX.Element | null => {
+import type { CarouselFloatProps } from "../common/typing/proptypes";
+
+import { Modal } from "../components";
+// eslint-disable-next-line import/no-useless-path-segments
+import { Carousel } from "../containers";
+
+const CarouselFloat = (props: CarouselFloatProps) => {
   const { modalClassName, modalStyles, config, ...childrenProps } = props;
 
   const handleClose = () => { props.selectPhoto(null); };

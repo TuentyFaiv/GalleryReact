@@ -1,18 +1,19 @@
-import { KeyboardEventHandler } from "react";
 import { createPortal } from "react-dom";
-import { Keys, ModalProps } from "../utils/types";
+import { Keys } from "../common/typing/enums";
+
+// eslint-disable-next-line import/order
+import type { KeyboardEventHandler } from "react";
+import type { ModalProps } from "../common/typing/proptypes";
 
 import "./styles/Modal.css";
 
-const Modal = ({ children, styles, className, onClose }: ModalProps): JSX.Element => {
+const Modal = ({ children, styles, className, onClose }: ModalProps) => {
   const modalRoot = document.querySelector("#gallery-portal");
   if (!modalRoot) throw new Error("There isn't a tag with 'gallery-portal' id");
 
-  const onCloseWithoutEvent = onClose as VoidFunction;
-
   const handleKeyClose: KeyboardEventHandler<HTMLSpanElement> = (event) => {
     if (event.code === Keys.escape && event.key === Keys.escape) {
-      onCloseWithoutEvent();
+      onClose();
     }
   };
 

@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { useGalleryContext } from "../context/GalleryContext";
-import { MosaicProps, SrcSet } from "../utils/types";
+import { useGalleryContext } from "../context";
+
+import type { MosaicProps } from "../common/typing/proptypes";
 
 import "./styles/Mosaic.css";
 
-const Mosaic = ({ styles, className, itemStyles, ...props }: MosaicProps): JSX.Element => {
+const Mosaic = ({ styles, className, itemStyles, ...props }: MosaicProps) => {
   const { photos, selectPhoto } = useGalleryContext();
   const [hover, setHover] = useState<number | null>(null);
 
@@ -17,7 +18,7 @@ const Mosaic = ({ styles, className, itemStyles, ...props }: MosaicProps): JSX.E
       className={className ?? "gallery-mosaic"}
       style={styles}
     >
-      {photos?.getAllPhotos().map((photo, index) => (
+      {photos?.getAll().map((photo, index) => (
         <button
           key={photo.value.id}
           onClick={() => selectPhoto(photo)}
@@ -30,7 +31,7 @@ const Mosaic = ({ styles, className, itemStyles, ...props }: MosaicProps): JSX.E
         >
           {(props.onHover && photo.value.id === hover) ? props.onHover(photo.value) : null }
           <picture className="gallery-mosaic__picture" style={props.pictureStyles}>
-            {photo.value.srcSets?.map((src: SrcSet) => (
+            {photo.value.srcSets?.map((src) => (
               <source
                 key={src.mediaQuery}
                 media={src.mediaQuery}

@@ -1,19 +1,22 @@
-/* eslint-disable react/jsx-props-no-spreading */
-import { useGalleryContext } from "../context/GalleryContext";
-import { GalleryCtx, WithContext } from "../utils/types";
+// eslint-disable-next-line import/order
+import { useGalleryContext } from "../context";
 
-export function withContext<T extends WithContext = WithContext>(
-  WrappedComponent: React.ComponentType<T>
-) {
-  const displayName = WrappedComponent.displayName || WrappedComponent.name || "Component";
+// eslint-disable-next-line import/order
+import type { ComponentType } from "react";
+import type { GalleryCtx, WithContext as HOC } from "../common/typing/contexts";
 
-  const ComponentWithContext = (props: Omit<T, keyof GalleryCtx>) => {
+function withContext<T extends HOC = HOC>(Component: ComponentType<T>) {
+  const displayName = Component.displayName || Component.name || "Component";
+
+  const WithContext = (props: Omit<T, keyof GalleryCtx>) => {
     const context = useGalleryContext();
 
-    return (<WrappedComponent {...context} {...(props as T)} />);
+    return (<Component {...context} {...(props as T)} />);
   };
 
-  ComponentWithContext.displayName = `withContext(${displayName})`;
+  WithContext.displayName = `withContext(${displayName})`;
 
-  return ComponentWithContext;
+  return WithContext;
 }
+
+export default withContext;
