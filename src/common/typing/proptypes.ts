@@ -10,6 +10,7 @@ export type CardProps = {
   title: string;
   photo: Photo;
   text: string;
+  className?: string;
 };
 
 export type ModalProps = ChildrenProps & {
@@ -37,7 +38,7 @@ export type MosaicProps = {
   className?: string;
   itemStyles?: (item: number) => CSSProperties;
   pictureStyles?: CSSProperties;
-  onHover?: (props: any) => ReactNode;
+  onHover?: (props: Photo) => ReactNode;
 };
 
 export type SayHelloProps = { name: string };
