@@ -1,0 +1,30 @@
+.gallery-modal {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  inset: 0;
+  z-index: 0;
+  &__overlay {
+    position: fixed;
+    display: block;
+    inset: 0;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 5;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &__content {
+    position: relative;
+    width: 100%;
+    max-width: 70%;
+    max-height: 70vh;
+    z-index: 10;
+  }
+}
+
+#gallery-portal {
+  position: relative;
+  z-index: 100;
+}

@@ -1,0 +1,31 @@
+.gallery-mosaic {
+  display: grid;
+  width: 100%;
+  max-width: 1980px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  &__item {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    place-self: center;
+    background-color: transparent;
+    border: 0;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &__picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  &__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    aspect-ratio: 1 / 1;
+  }
+}

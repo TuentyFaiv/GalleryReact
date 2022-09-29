@@ -1,3 +1,2 @@
-export function sayHello(name: string): string {
-  return `Hey ${name}, say hello to TypeScript`;
-}
+export { default as Card } from "./Card";
+export { default as Modal } from "./Modal";

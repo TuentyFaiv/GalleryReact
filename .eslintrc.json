@@ -35,6 +35,7 @@
 	},
 	"rules": {
 		"linebreak-style": 0,
+		"object-curly-newline": 0,
 		"quotes": [
 			"error",
 			"double"
@@ -51,6 +52,9 @@
 		],
 		"no-use-before-define": "off",
 		"no-shadow": "off",
+		"prefer-destructuring": 0,
+		"@typescript-eslint/lines-between-class-members": "off",
+		"@typescript-eslint/no-explicit-any": 0,
 		"@typescript-eslint/comma-dangle": [
 			"error",
 			"never"
@@ -71,11 +75,20 @@
 		// 		"allowExpressions": true
 		// 	}
 		// ],
-		// "react/jsx-uses-react": "off",
-		// "react/react-in-jsx-scope": "off",
+		"react/destructuring-assignment": 0,
+		"react/jsx-props-no-spreading": 0,
+		"react/jsx-uses-react": "off",
+		"react/react-in-jsx-scope": "off",
 		"react/prop-types": "off",
 		"react-hooks/rules-of-hooks": "error",
 		"react-hooks/exhaustive-deps": "warn",
+		"react/function-component-definition": [
+			"error",
+			{
+				"namedComponents": "arrow-function",
+				"unnamedComponents": "arrow-function"
+			}
+		],
 		"react/jsx-filename-extension": [
 			"warn",
 			{
