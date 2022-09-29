@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "outDir": "lib",
-    "target": "esnext",
+    "target": "ESNext",
     "lib": [
       "dom",
       "dom.iterable",
@@ -14,7 +14,7 @@
     "forceConsistentCasingInFileNames": true,
     "jsx": "react-jsx",
     "isolatedModules": true,
-    "module": "esnext",
+    "module": "CommonJS",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "skipLibCheck": true,
